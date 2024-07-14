@@ -43,4 +43,5 @@ void entrada(int ini, int fim, int *num){
     }
 }
 
+
 #endif

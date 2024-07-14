@@ -12,6 +12,7 @@ int main(){
 
     carregaArquivo(&agenda, &qt, &MaxIni, "agenda.txt");
 
+    
     while (!sair){
         menu();
         entrada(1,6, &opcao);

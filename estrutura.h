@@ -36,6 +36,7 @@ void carregaArquivo(struct Aniversario **agenda, int *qt, int *MaxIni, char *nom
     fclose(f);
     printf("Arquivo carregado com sucesso. Aperte enter para continuar.");
     getchar();
+    
 }
 
 void salvaArquivo(struct Aniversario *agenda, int qt, char *nome_arquivo){
