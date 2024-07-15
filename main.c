@@ -2,16 +2,16 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
-#include "estrutura.h"
-#include "funcoesSec.h"
-#include "funcoesPri.h"
+#include "body/estrutura.h"
+#include "body/funcoesSec.h"
+#include "body/funcoesPri.h"
 
 int main(){
     int opcao, sair = 0, qt, MaxIni;
     struct Aniversario *agenda = NULL;
     //telaInicial();
 
-    carregaArquivo(&agenda, &qt, &MaxIni, "agenda.txt");
+    carregaArquivo(&agenda, &qt, &MaxIni, "txt/agenda.txt");
 
     while (!sair){
         menu();
@@ -34,7 +34,7 @@ int main(){
                 buscaNome(agenda, qt);
                 break;
             case 6:
-                configuraEmail("email.txt");
+                configuraEmail("txt/email.txt");
                 break;
             case 7:
                 sair = 1;
@@ -42,7 +42,7 @@ int main(){
         }
     }
 
-    salvaArquivo(agenda, qt, "agenda.txt");
+    salvaArquivo(agenda, qt, "txt/agenda.txt");
     free(agenda);
     limpaTela();
     return 0;
