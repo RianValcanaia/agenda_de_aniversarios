@@ -3,24 +3,28 @@
 
 struct Sdata {
     int dia, mes, ano;
-}
+};
 
 struct Pessoas {
-    char name[200];
+    char nome[200];
     struct Sdata data;
    int idade;
 };
 
-void carregaArquivo(struct Pessoas **pv, int *qt,  int *vazio, char *nome_arquivo){
+void carregaArquivo(struct Pessoas **pv, int *qt, int *vazio, char *nome_arquivo){
     FILE *f = fopen(nome_arquivo, "rt");
     if (f == NULL){
-        vazio = 1;
-        fclose(f);
+        *vazio = 1;
         return;
     }
 
-    fscanf(f, "%d", *qt);
-    *pv = malloc(sizeof(struct Pessoas)*(*qt));
+    fscanf(f, "%d", qt);
+    *pv = malloc(sizeof(struct Pessoas) * (*qt));
+    if (*pv == NULL) {
+        *vazio = 1;
+        fclose(f);
+        return;
+    }
 
     for (int i = 0; i < *qt; i++){
         fscanf(f, " %[^\n]", (*pv)[i].nome);
@@ -29,7 +33,6 @@ void carregaArquivo(struct Pessoas **pv, int *qt,  int *vazio, char *nome_arquiv
     }
 
     fclose(f);
-
 }
 
 void recebeData(int *diaAtual, int *mesAtual, int *anoAtual){
@@ -43,14 +46,11 @@ void recebeData(int *diaAtual, int *mesAtual, int *anoAtual){
 void carregaEmail(char *email, int *naoTemEmail, char *nome_arquivo){
     FILE *f = fopen(nome_arquivo, "rt");
     if (f == NULL){
-        naoTemEmail = 1;
-        fclose(f);
+        *naoTemEmail = 1;
         return; 
     }
 
-    fscanf(" %[^\n]", email);
+    fscanf(f, " %[^\n]", email);
     fclose(f);
 }
-
-
 #endif

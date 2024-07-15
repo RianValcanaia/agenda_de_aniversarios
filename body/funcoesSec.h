@@ -28,8 +28,7 @@ void menu(){
     printf("3 - Remover um aniversario\n");
     printf("4 - Buscar por data\n");
     printf("5 - Buscar por nome\n");
-    printf("6 - Configurar e-mail\n");
-    printf("7 - Sair\n");
+    printf("6 - Sair\n");
     printf("\nopcão: ");
 }
 

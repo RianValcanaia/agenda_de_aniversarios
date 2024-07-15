@@ -15,7 +15,7 @@ int main(){
 
     while (!sair){
         menu();
-        entrada(1,7, &opcao);
+        entrada(1, 6, &opcao);
         switch (opcao){
             case 1:
                 insereAniversario(&agenda, &qt, &MaxIni);
@@ -34,9 +34,6 @@ int main(){
                 buscaNome(agenda, qt);
                 break;
             case 6:
-                configuraEmail("txt/email.txt");
-                break;
-            case 7:
                 sair = 1;
                 break;
         }
