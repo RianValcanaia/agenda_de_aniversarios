@@ -2,8 +2,9 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
-#include "funcoes.h"
 #include "estrutura.h"
+#include "funcoesSec.h"
+#include "funcoesPri.h"
 
 int main(){
     int opcao, sair = 0, qt, MaxIni;
@@ -12,27 +13,30 @@ int main(){
 
     carregaArquivo(&agenda, &qt, &MaxIni, "agenda.txt");
 
-    
     while (!sair){
         menu();
-        entrada(1,6, &opcao);
+        entrada(1,7, &opcao);
         switch (opcao){
             case 1:
                 insereAniversario(&agenda, &qt, &MaxIni);
+                selectionSort(agenda, qt);
                 break;
             case 2: 
-                //ver todos os aniversarios cadastrados;
+                mostraAniversario(agenda, qt);
                 break;
             case 3:
-                //buscar por data
+                removeAniversario(&agenda, &qt);
+                break;            
+            case 4:
+                buscaData(agenda, qt);
                 break;
-            case 4: 
-                //buscar por nome;
-                break;
-            case 5:
-                //configurar email
+            case 5: 
+                buscaNome(agenda, qt);
                 break;
             case 6:
+                //configurar email
+                break;
+            case 7:
                 sair = 1;
                 break;
         }
