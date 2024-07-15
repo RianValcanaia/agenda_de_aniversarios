@@ -34,7 +34,7 @@ int main(){
                 buscaNome(agenda, qt);
                 break;
             case 6:
-                //configurar email
+                configuraEmail("email.txt");
                 break;
             case 7:
                 sair = 1;
